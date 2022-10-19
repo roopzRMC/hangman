@@ -16,11 +16,4 @@ group_people
 # %%
 # %%
 input('hello')
-# %%
-## Test for an input to be a single letter
-guess = str(input('enter a single letter'))
-while not (len(guess) == 1 and guess.isalpha()):
-    print('try again')
-    guess = str(input('oops, enter a letter again plz'))
-else:
-    print('yay')
+
