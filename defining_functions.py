@@ -1,6 +1,7 @@
 # %% This is a void function
 
 from cmath import pi
+from math import factorial
 
 
 def my_void_function():
@@ -117,3 +118,18 @@ def profile_validation():
 # %%
 profile_validation()
 # %%
+
+## Recursion and factorial
+
+# %%
+
+def my_factorial(x):
+
+    if x == 0:
+        return 1
+    else:
+        return(x * factorial(x-1))
+# %%
+my_factorial(5)
+# %%
+##
