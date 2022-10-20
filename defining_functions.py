@@ -38,3 +38,29 @@ ss = fib_generator(10)
 # %%
 ss
 # %%
+## Dictionary based function
+
+clothing_dict = {'name':'uddie', 'price':'37', 'size':'xxl'}
+# %%
+type(clothing_dict)
+# %%
+clothing_dict['price']
+# %%
+def dict_printer(your_dict, attributes_to_print = 'all'):
+    
+    if attributes_to_print == 'all':
+        key_list = []
+        for i in your_dict.keys():
+            key_list.append(i)
+        for key in key_list:
+            print(f'{key}, {your_dict[key]}')
+    else:
+        for i in range(0, len(attributes_to_print)):
+            print(f'{attributes_to_print[i]}, {your_dict[attributes_to_print[i]]}')
+
+
+# %%
+dict_printer(clothing_dict, attributes_to_print=['name', 'size'])
+
+
+# %%
