@@ -64,3 +64,56 @@ dict_printer(clothing_dict, attributes_to_print=['name', 'size'])
 
 
 # %%
+## Profile validation
+def profile_validation():
+
+    def check_name():
+        
+        bad_chars = str('!@£$%^&*()')
+        
+        while True:
+            name = input('enter your name')
+            if bad_chars in name:
+                name = input('please try again as you entered an invalid character')
+            else:
+                print('cheers for the name')
+                break
+        print(f'your name has been stored as {name}')
+        return name
+    
+    name = check_name()  
+
+    def check_age():
+
+        while True:
+            age = int(input('enter your age'))
+            if age < 12:
+                age = input('you must be over 12 to register')
+            else:
+                print('your age has been recorded')
+                break
+    
+        return age
+
+    age = check_age()
+
+    def check_email():
+        
+        while True:
+            email = input('enter a valid email')
+            if '@' not in email:
+                email = input('please make sure your email is valid')
+            else:
+                print('email registered')
+                break
+        return email
+    
+    email = check_email()
+    print(f'{name}, {age}, {email}')
+    #print(f'your name is {name}, your age is {check_age.age}, your email is {check_email.email}')
+
+        
+
+# %%
+profile_validation()
+# %%
