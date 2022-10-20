@@ -23,3 +23,18 @@ def volume_of_sphere(radius):
 # %%
 volume_of_sphere(12)
 # %%
+# Fibonacci
+import numpy as np
+def fib_generator(n_terms):
+    list = np.zeros(n_terms)
+    list[1] = 1
+    for i in range(2, len(list)):
+        list[i] = list[i-2] + list[i-1]
+    return list
+
+
+# %%
+ss = fib_generator(10)
+# %%
+ss
+# %%
