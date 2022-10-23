@@ -176,7 +176,32 @@ def recursive_fib(n):
 
 
 # %%
-l = recursive_fib(10)
+l = recursive_fib(9)
 # %%
 print(l)
+# %%
+## The fibonacci loop
+def div_7(term):
+    if term%7 == 0:
+        print(f'{term} is divisible by 7')
+    else:
+        print(f'{term} is not divisible by 7')
+
+def term_size(term):
+    if term >= 100 or term < 50:
+        print(f'the number is either equal to or larger than 100 or or less than 50')
+
+
+for i in range(1, 30):
+    fib_term = recursive_fib(i)
+    div_7(fib_term)
+    term_size(fib_term)
+
+
+
+
+# %%
+list
+# %%
+10%5
 # %%
