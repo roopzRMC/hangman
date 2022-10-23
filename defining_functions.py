@@ -2,6 +2,7 @@
 
 from cmath import pi
 from math import factorial
+from re import L
 
 
 def my_void_function():
@@ -132,4 +133,50 @@ def my_factorial(x):
 # %%
 my_factorial(5)
 # %%
-##
+## Recursive fibonacci
+def fib_generator(n_terms):
+    list = np.zeros(n_terms)
+    list[1] = 1
+    for i in range(2, len(list)):
+        list[i] = list[i-2] + list[i-1]
+    return list
+
+
+
+def sum_to_one(n):
+  result = 1
+  call_stack = []
+  
+  while n != 1:
+    execution_context = {"n_value": n}
+    call_stack.append(execution_context)
+    n -= 1
+    print(call_stack)
+  print("BASE CASE REACHED")
+
+  while len(call_stack)!=0:
+    return_value = call_stack.pop()
+    print(call_stack)
+    print(f"adding {return_value['n_value']} to {result}")
+    result += return_value['n_value']
+  return result, call_stack
+
+
+
+sum_to_one(4)
+    
+# %%
+## Recrusive fibonacci
+def recursive_fib(n):
+    if n<=1:
+        return n
+    else:
+        return(recursive_fib(n-1) + recursive_fib(n-2))
+
+
+
+# %%
+l = recursive_fib(10)
+# %%
+print(l)
+# %%
