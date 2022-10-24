@@ -247,3 +247,33 @@ def palindrome_detector(string):
 # %%
 palindrome_detector('hjabwala')
 
+# %%
+
+### Task 3
+word = 'yoghurt'
+def check_guess(guess):
+    guess = str.lower(guess)
+    while True:
+        guess = str(input('enter your word'))
+        if not (guess in word):
+            print('sorry your word is not in the programmed word')
+        else:
+            print(f'well done {guess} is in {word}')
+            break
+    
+
+def ask_for_input():
+    
+    while True:
+        guess = str(input('guess which word im thinking of'))
+        if not (guess == word):
+            print('wrong word, please try again')
+            continue
+        else:
+            print('congrats, correct guess')
+            break    
+    
+    check_guess(guess)
+# %%
+ask_for_input()
+# %%
