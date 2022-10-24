@@ -197,11 +197,68 @@ for i in range(1, 30):
     div_7(fib_term)
     term_size(fib_term)
 
+# %%
+## inverse the string if the start and end characters appear in the middle
+test_string = "kwame"
+
+def reverse_middle_chars(string):
+    if len(string) == 0:
+        return string
+    elif (string[0] != len(string)//2 and string[-1] != len(string)//2+1):
+        return string[-1] + reverse_middle_chars(string[:-1])
+    else:
+        return string
+
+# %% 
+reverse_middle_chars('hihhah')
+# %%
+
+
+#
+## test logic iteratively
+
+## bottom inverse
+for i in range(len(test_string)//2, -1, -1):
+    print(test_string[i])
+
+## top inverse
+for j in range(len(test_string)-1,len(test_string)//2, -1):
+    print(test_string[j])
 
 
 
 # %%
-list
+len(test_string)# %%
+
 # %%
-10%5
+def backward(text):
+    if text == "":
+        return text
+    else:
+        return text[-1] + backward(text[:-1])
+# %%
+backward('abcde')
+# %%
+class Solution:
+    def reverseString(self, s, lo=0, hi=None):
+        """
+        :type s: str
+        :rtype: None
+        """
+        if hi == None:
+            hi = len(s)
+      #base case
+        if hi <= 1:
+            return s
+
+        #recur case 
+        elif hi >= 2:
+            mid = hi // 2
+            left = self.reverseString(s, lo, mid)
+            right = self.reverseString(s, mid, hi)
+            return left + right  
+# %%
+reverser = Solution()
+# %%
+reverser.reverseString(s='abcde')
 # %%
