@@ -5,7 +5,7 @@ while True:
     guess = str(input('guess which word im thinking of'))
     if not (guess == the_word):
         print('wrong word, please try again')
-        continue
+        
     else:
         print('congrats, correct guess')
         break
@@ -252,28 +252,15 @@ palindrome_detector('hjabwala')
 ### Task 3
 word = 'yoghurt'
 def check_guess(guess):
-    guess = str.lower(guess)
     while True:
-        guess = str(input('enter your word'))
-        if not (guess in word):
-            print('sorry your word is not in the programmed word')
-        else:
-            print(f'well done {guess} is in {word}')
+        if guess in word:
+            print('congrats, your guess is in the word')
             break
-    
-
-def ask_for_input():
-    
-    while True:
-        guess = str(input('guess which word im thinking of'))
-        if not (guess == word):
-            print('wrong word, please try again')
-            continue
         else:
-            print('congrats, correct guess')
-            break    
-    
-    check_guess(guess)
+            print('sorry your guess is incorrect please try again')
+            break
+
+
 # %%
-ask_for_input()
+check_guess('y')
 # %%
