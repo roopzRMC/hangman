@@ -260,7 +260,41 @@ def check_guess(guess):
             print('sorry your guess is incorrect please try again')
             break
 
+def ask_for_input():
+    check_guess(guess)
+
+    while True:
+        user_supplied_word = str(input('enter your word'))
+        if user_supplied_word == word:
+            print(f'congrats, {user_supplied_word} is the correct word')
+            break
+        else:
+            print(f'sorry, {user_supplied_word} is not the correct word')
+            
 
 # %%
-check_guess('y')
+## Task 3
+word = 'yoghurt'
+def check_guess(guess):
+    while True:
+        if guess in word:
+            print('congrats, your guess is in the word')
+            break
+        else:
+            print('sorry your guess is incorrect please try again')
+            break
+
+def ask_for_input():
+
+    while True:
+        word_guess = str.lower(input('enter your word guess'))
+        if word_guess == word:
+            print('you have guessed the word')
+            break
+        else:
+            print('please try again')
+        
+        check_guess(word_guess)
+# %%
+ask_for_input()
 # %%
