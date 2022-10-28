@@ -212,53 +212,14 @@ def reverse_middle_chars(string):
 # %% 
 reverse_middle_chars('hihhah')
 # %%
+## Palindrome detector
 
-
-#
-## test logic iteratively
-
-## bottom inverse
-for i in range(len(test_string)//2, -1, -1):
-    print(test_string[i])
-
-## top inverse
-for j in range(len(test_string)-1,len(test_string)//2, -1):
-    print(test_string[j])
-
-
-
-# %%
-len(test_string)# %%
-
-# %%
-def backward(text):
-    if text == "":
-        return text
+def palindrome_detector(string):
+    if reverse_middle_chars(string) == string:
+        print(f'{string} is a palindrome congrats')
     else:
-        return text[-1] + backward(text[:-1])
-# %%
-backward('abcde')
-# %%
-class Solution:
-    def reverseString(self, s, lo=0, hi=None):
-        """
-        :type s: str
-        :rtype: None
-        """
-        if hi == None:
-            hi = len(s)
-      #base case
-        if hi <= 1:
-            return s
+        print('no palindrom detected')
 
-        #recur case 
-        elif hi >= 2:
-            mid = hi // 2
-            left = self.reverseString(s, lo, mid)
-            right = self.reverseString(s, mid, hi)
-            return left + right  
 # %%
-reverser = Solution()
-# %%
-reverser.reverseString(s='abcde')
-# %%
+palindrome_detector('hjabwala')
+
