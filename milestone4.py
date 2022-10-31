@@ -113,6 +113,10 @@ class Hangman():
         self.lives = lives
         self.word = None
 
+    def __repr__(self):
+        rep = 'You are playing a game of hangman with' + " " + str(self.lives) + " " + "lives"
+        return rep
+
     def choose_word(self):
         word_repo = ['sennheiser', 'hifiman', 'grado', 'final', 'akg', 'tinn']
         self.word = random.choice(word_repo)
@@ -156,3 +160,119 @@ mygame.choose_word()
 # %%
 mygame.play_the_game()
 # %%
+print(repr(mygame))
+# %%
+## Create a car class
+
+class Car:
+    def __init__(self, model, year=2022):
+        self.model = model
+        self.year = year
+        self.miles_driven = 0
+    
+    def drive(self):
+        print('VROOOM!')
+        self.miles_driven +=1
+
+    def info(self):
+        return self.miles_driven, self.model, self.year
+
+
+
+# %%
+mysaab = Car(model='95')
+# %%
+mysaab.drive()
+# %%
+mysaab.info()
+# %%
+class Vector:
+    def __init__(self, my_list = list()):
+        self.my_list = my_list
+        self.length = len(self.my_list)
+    
+    def __repr__(self):
+        return "I am a vector mate"
+
+    def __add__(self, other):
+        return self.length + other.length
+    
+    def __getitem__(self, index):
+        return self.my_list.__getitem__(self, index)
+
+
+# %%
+myvec1 = Vector(my_list=[7,8,9])
+
+# %%
+myvec1
+
+# %%
+myvec2 = Vector(my_list=[1,2,3,4])
+
+# %%
+myvec2.length
+# %%
+myvec1 + myvec2
+# %%
+
+# %%
+print(bin(myvec1))
+# %%
+
+class Vector_2(list):
+
+    def __add__(self, other):
+        return self.length + other.length
+
+    def __getitem__(self, index):
+        if index == 0:
+            raise ValueError
+        index = index - 1
+        return list.__getitem__(self, index)    
+# %%
+myvector = Vector_2([4,5,6,7,8])
+# %%
+myvector[1]
+# %%
+## Create a person class and compare dates of birth + add friends to both instances
+
+from datetime import datetime
+class Person:
+    def __init__(self, name, date_of_birth, friend_list):
+        self.name = name
+        self.date_of_birth = datetime.strptime(date_of_birth, "%Y-%m-%d")
+        self.friend_list = friend_list
+
+    def add_friend(self):
+        pass
+
+    def __str__(self):
+        return self.name + " " + str(self.date_of_birth) + " " + str(len(self.friend_list))
+
+    def __gt__(self, other):
+        return self.date_of_birth > other.date_of_birth
+
+    def add_friend(self, friend):
+        self.friend_list.append(friend.name)
+        friend.friend_list.append(self.name)
+
+
+# %%
+frank = Person('Frank', '2019-02-10', friend_list=['gina', 'peepee', 'kwaku'])
+# %%
+leo = Person('Leo', '2017-01-01', friend_list = ['baba', 'shaba', 'kwaku'])
+# %%
+frank.add_friend(leo)
+# %%
+frank.friend_list
+# %%
+leo.friend_list
+# %%
+frank < leo
+# %%
+leo < frank
+# %%
+frank.date_of_birth
+# %%
+leo.date_of_birth
