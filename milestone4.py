@@ -276,3 +276,73 @@ leo < frank
 frank.date_of_birth
 # %%
 leo.date_of_birth
+
+# %%
+## Create a shape class - an Abstract Base Class!
+
+class Shape:
+    def __init__(self, num_sides, tesselates=None):
+        if num_sides == 0:
+            raise ValueError('you must enter 2 or more side')
+        else:
+            self.num_sides = num_sides
+        self.tesselates = tesselates
+
+    def get_info(self):
+        raise NotImplementedError('this feature has not been implemented, pipe down mate')
+
+    def __repr__(self):
+        return self.get_info()
+
+    def __add__(self, other):
+        return self.num_sides + other.num_sides
+
+
+# %%
+## Create the child classes based on shape
+class Triangle(Shape):
+    def __init__(self, num_sides, tessalates=True):
+        super().__init__(num_sides, tessalates)
+    
+    def get_info(self):
+        return f'this shape has {self.num_sides} sides and tessalates is set to {self.tesselates}'
+
+
+class Square(Shape):
+    def __init__(self, num_sides, tessalates=True):
+        super().__init__(num_sides, tessalates)
+
+    def get_info(self):
+        return 'this shape has ' + str(self.num_sides) + ' sides' + ' and tessalates is set to ' + str(self.tesselates)
+
+class Pentagon(Shape):
+    def __init__(self, num_sides, tessalates=None):
+        super().__init__(num_sides, tessalates)
+
+    def get_info(self):
+        return 'this shape has ' + str(self.num_sides) + ' sides' + ' and tessalates is set to ' + str(self.tesselates)
+
+class Hexagon(Shape):
+    def __init__(self, num_sides, tessalates=True):
+        super().__init__(num_sides, tessalates)
+    
+    def get_info(self):
+        return 'this shape has ' + str(self.num_sides) + ' sides' + ' and tessalates is set to ' + str(self.tesselates)
+
+class Circle(Shape):
+    def __init__(self,num_sides = 0, tessalates=None):
+        super().__init(num_sides, tessalates)
+# %%
+my_triangle = Triangle(3)
+my_triangle.get_info()
+# %%
+my_square = Square(4)
+# %%
+my_pentagon = Pentagon(5)
+my_pentagon
+
+# %%
+print(my_pentagon)
+# %%
+my_pentagon + my_square
+# %%
