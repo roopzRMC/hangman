@@ -12,29 +12,32 @@ class Hangman:
         for i in range(len(self.word)):
             self.word_guessed.append('_')
         ## number of unique letters
-        self.num_letters = len(list(set(self.word)))
+        self.num_letters = len(set(self.word))
         ## list of guesses
         self.list_of_guesses = []
 
     def check_guess(self, guess):
-        guess = str.lower(guess)
+        guess = guess.lower()
         if guess in self.word:
             print(f'Good guess! {guess} is in the word')
             for i in range(len(self.word)):
                 if self.word[i] == guess:
                     self.word_guessed[i] = guess
-                    print(self.word_guessed)
-            
+            print(self.word_guessed)
             self.num_letters -= 1
             
         else:
-            print('please try again')
+            self.num_lives -= 1
+            print(f'sorry {guess} is not in the word')
+            print(f'you have {self.num_lives} left')
+        self.list_of_guesses.append(guess)
+            
 
     def ask_for_input(self):
 
         while True:
             guess = input('Please guess a letter')
-            if len(guess) != 1 and self.word.isalpha() ==False:
+            if len(guess) != 1 or not self.word.isalpha():
                 print('Invalid letter. Please enter a single alphanumeric character')
             elif guess in self.list_of_guesses:
                 print('You have already tried that letter')
