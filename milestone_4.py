@@ -8,11 +8,11 @@ class Hangman:
         self.num_lives = num_lives
         self.word = random.choice(self.word_list)
         ## initialise the word list
-        word_guessed = []
-        for i in range(len(word)):
-            word_guessed.append('_')
+        self.word_guessed = []
+        for i in range(len(self.word)):
+            self.word_guessed.append('_')
         ## number of unique letters
-        num_letters = len(list(set(self.word)))
+        self.num_letters = len(list(set(self.word)))
         ## list of guesses
         self.list_of_guesses = []
 
@@ -20,6 +20,13 @@ class Hangman:
         guess = str.lower(guess)
         if guess in self.word:
             print(f'Good guess! {guess} is in the word')
+            for i in range(len(self.word)):
+                if self.word[i] == guess:
+                    self.word_guessed[i] = guess
+                    print(self.word_guessed)
+            
+            self.num_letters -= 1
+            
         else:
             print('please try again')
 
@@ -36,14 +43,6 @@ class Hangman:
                 self.list_of_guesses.append(guess)
                 
 
-
-
-"""
-word_guessed: list - A list of the letters of the word, with _ for each letter not yet guessed. 
-For example, if the word is 'apple', the word_guessed list would be ['_', '_', '_', '_', '_']. 
-If the player guesses 'a', the list would be ['a', '_', '_', '_', '_']
-
-"""
 
 
 # %%
