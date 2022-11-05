@@ -177,3 +177,36 @@ __eq__  -> equals
 __lt__  -> less than
 __repr__ -> what is printed when you print(Class)
 ```
+
+> Coding of Hangman
+
+The Hangman game relies 2 main functions;
+- ask_for_input
+- check_guess
+
+These functions lie within a class; Hangman which takes 2 arguments to be initialised;
+- word_list
+- number of lives
+
+The game's logic rests on 2 counters;
+- number of lives (number of incorrect attempts allowed before lives run out)
+- num letters (number of unguessed letters still to be guessed)
+
+We use set logic to determine to number of unique words in the word
+
+## Creating the 2 key functions in the class
+
+- We first create a list of underscores that correspond to the length of the word that is randomly chosen from the list
+- Once the game is intantiated the ask_for_input function is called which completes some checks;
+    - is the word of length 1 and alpha numberic
+    - has the guess already been submitted (by checking the list of guesses)
+- Assuming those checks are passed, the check_guess function is called
+    - Check guess first checks if the guessed letter is in the word;
+        - If so; num_letters is decreased by 1 and the word_guessed is looped through to replace the underscore with the letter at the correct position within the word
+        - If not; num_lives is decreased by 1 and the list of guesses is appended with the letter guessed
+
+## Defining the game logic
+
+A new function is created in which a hangman object is created and a while loop is initiated
+- The while loop is able to access the attributes in the game object through getattr()
+- The function leverages the num_lives and num_letters to determine the STDOUT messages and loss or win of the game by accessing the counting variables
